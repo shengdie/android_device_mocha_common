@@ -15,7 +15,7 @@
 #
 
 # Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG += mdpi hdpi xhdpi xxhdpi
+PRODUCT_AAPT_CONFIG += normal hdpi xhdpi xxhdpi
 TARGET_SCREEN_HEIGHT := 2048
 TARGET_SCREEN_WIDTH := 1536
 
@@ -186,7 +186,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ap.interface=wlan0 \
     persist.tegra.nvmmlite = 1 \
     persist.wlan.ti.calibrated = 0 \
-    ro.sf.override_null_lcd_density = 1 \
+    ro.sf.override_null_lcd_density = 0 \
     ro.sf.lcd_density=320 \
     persist.tegra.compositor=glcomposer \
     ro.input.noresample=1 \
@@ -205,7 +205,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     pbc.gpu.power=/sys/bus/i2c/devices/7-004b/power1_input \
     pbc.gpu.cap=/dev/gpu_freq_max \
     pbc.gpu.cap.af=/sys/devices/platform/host1x/gk20a.0/devfreq/gk20a.0/available_frequencies \
-    af.resampler.quality = 4 \
+    af.resampler.quality = 3 \
     persist.tegra.didim.enable = 1 \
     persist.tegra.didim.video = 5 \
     persist.tegra.didim.normal = 3
