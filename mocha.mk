@@ -31,6 +31,8 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     fstab.mocha \
     init.mocha.rc \
+    init.t124_emmc.rc \
+    init.t124_sata.rc \
     init.cal.rc \
     init.hdcp.rc \
     init.t124.rc \
