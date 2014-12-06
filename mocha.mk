@@ -29,6 +29,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
+    init \
     fstab.mocha \
     init.mocha.rc \
     init.t124_emmc.rc \
