@@ -21,7 +21,7 @@ TARGET_SCREEN_WIDTH := 1536
 
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
-$(call inherit-product-if-exists, vendor/nvidia/shieldtablet/mocha-vendor.mk)
+$(call inherit-product-if-exists, vendor/Xiaomi/mocha/mocha-vendor.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
