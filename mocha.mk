@@ -42,6 +42,9 @@ PRODUCT_PACKAGES += \
     power.mocha.rc \
     ueventd.mocha.rc
 
+PRODUCT_COPY_FILES += \
+    device/Xiaomi/mocha-common/rootdir/etc/init:root/init
+
 # Enable repeatable keys in CWM
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.enable_key_repeat=true
