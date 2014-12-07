@@ -47,11 +47,22 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+#BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/backlight/pwm-backlight/brightness\"
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/Xiaomi/mocha-common/recovery/recovery_keys.c
 TARGET_RECOVERY_FSTAB := device/Xiaomi/mocha-common/recovery.fstab
+RECOVERY_SDCARD_ON_DATA := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/sdcard"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+RECOVERY_TOUCHSCREEN_FLIP_Y := true
+RECOVERY_TOUCHSCREEN_FLIP_X := true
+TARGET_PREBUILT_RECOVERY_KERNEL := device/Xiaomi/mocha-common/kernel
+BOARD_MKRECOVERYIMG_ARGS := --dt device/Xiaomi/mocha-common/dt.img
+PRODUCT_COPY_FILES += device/Xiaomi/mocha-common/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # Graphics
 USE_OPENGL_RENDERER := true
