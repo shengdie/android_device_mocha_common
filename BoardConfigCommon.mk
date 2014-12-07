@@ -62,7 +62,8 @@ RECOVERY_TOUCHSCREEN_FLIP_Y := true
 RECOVERY_TOUCHSCREEN_FLIP_X := true
 TARGET_PREBUILT_RECOVERY_KERNEL := device/Xiaomi/mocha-common/kernel
 BOARD_MKRECOVERYIMG_ARGS := --dt device/Xiaomi/mocha-common/dt.img
-PRODUCT_COPY_FILES += device/Xiaomi/mocha-common/twrp.fstab:recovery/root/etc/twrp.fstab
+PRODUCT_COPY_FILES += device/Xiaomi/mocha-common/twrp.fstab:recovery/root/etc/twrp.fstab \
+		      device/Xiaomi/mocha-common/rootdir/etc/init:recovery/root/init
 
 # Graphics
 USE_OPENGL_RENDERER := true
