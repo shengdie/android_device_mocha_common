@@ -208,7 +208,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     pbc.gpu.power=/sys/bus/i2c/devices/7-004b/power1_input \
     pbc.gpu.cap=/dev/gpu_freq_max \
     pbc.gpu.cap.af=/sys/devices/platform/host1x/gk20a.0/devfreq/gk20a.0/available_frequencies \
-    af.resampler.quality = 3 \
-    persist.tegra.didim.enable = 1 \
-    persist.tegra.didim.video = 5 \
-    persist.tegra.didim.normal = 3
+    af.resampler.quality = 3
+
+#    persist.tegra.didim.enable = 1 \
+#    persist.tegra.didim.video = 5 \
+#    persist.tegra.didim.normal = 3
