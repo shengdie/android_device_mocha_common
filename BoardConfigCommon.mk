@@ -58,12 +58,13 @@ TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/sdcard"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
-RECOVERY_TOUCHSCREEN_FLIP_Y := true
-RECOVERY_TOUCHSCREEN_FLIP_X := true
+#RECOVERY_TOUCHSCREEN_FLIP_Y := true
+#RECOVERY_TOUCHSCREEN_FLIP_X := true
 TARGET_PREBUILT_RECOVERY_KERNEL := device/Xiaomi/mocha-common/kernel
 BOARD_MKRECOVERYIMG_ARGS := --dt device/Xiaomi/mocha-common/dt.img
 PRODUCT_COPY_FILES += device/Xiaomi/mocha-common/twrp.fstab:recovery/root/etc/twrp.fstab \
-		      device/Xiaomi/mocha-common/rootdir/etc/init:recovery/root/init
+		      device/Xiaomi/mocha-common/rootdir/etc/init:recovery/root/init \
+		      device/Xiaomi/mocha-common/rootdir/sbin/e2fsck_static:recovery/root/sbin/e2fsck_static
 
 # Graphics
 USE_OPENGL_RENDERER := true
