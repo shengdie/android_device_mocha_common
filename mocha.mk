@@ -43,8 +43,9 @@ PRODUCT_PACKAGES += \
     ueventd.mocha.rc
 
 PRODUCT_COPY_FILES += \
-    device/Xiaomi/mocha-common/rootdir/etc/init:root/init
-
+    device/Xiaomi/mocha-common/rootdir/etc/init:root/init \
+    device/Xiaomi/mocha-common/rootdir/sbin/chargeonlymode:root/sbin/chargeonlymode \
+    device/Xiaomi/mocha-common/rootdir/sbin/mdbd:root/sbin/mdbd
 # Enable repeatable keys in CWM
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.enable_key_repeat=true
@@ -69,11 +70,14 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:system/etc/permissions/android.hardware.sensor.stepcounter.xml \
+    frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:system/etc/permissions/android.hardware.sensor.stepdetector.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
@@ -136,13 +140,8 @@ PRODUCT_COPY_FILES += \
 
 # Wifi
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/bcm4335/fw_bcmdhd.bin:system/vendor/firmware/bcm4335/fw_bcmdhd.bin \
-    $(LOCAL_PATH)/wifi/bcm43241/fw_bcmdhd.bin:system/vendor/firmware/bcm43241/fw_bcmdhd.bin \
-    $(LOCAL_PATH)/wifi/bcm43341/fw_bcmdhd.bin:system/vendor/firmware/bcm43341/fw_bcmdhd.bin \
-    $(LOCAL_PATH)/wifi/bcm43341/fw_bcmdhd_a0.bin:system/vendor/firmware/bcm43341/fw_bcmdhd_a0.bin \
     $(LOCAL_PATH)/wifi/fw_bcmdhd.bin:system/etc/firmware/fw_bcmdhd.bin \
     $(LOCAL_PATH)/wifi/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
-    $(LOCAL_PATH)/wifi/nvram.txt:system/firmware/nvram.txt \
     $(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 PRODUCT_PACKAGES += \
@@ -191,6 +190,28 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.wlan.ti.calibrated = 0 \
     ro.sf.override_null_lcd_density = 0 \
     ro.sf.lcd_density=320 \
+    ro.btconfig.if=uart \
+    ro.btconfig.dev=/dev/ttyTHS2 \
+    ro.btconfig.vendor=broadcom \
+    ro.btconfig.chip=BCM4354 \
+    ro.wlan.mimo=1 \
+    ro.radio.noril=yes \
+    persist.sys.aries.power_profile=middle \
+    persist.sys.NV_POWER_MODE=1 \
+    persist.power.useautobrightadj=true \
+    persist.sys.button_jack_profile=volume \
+    persist.sys.button_jack_switch=0 \
+    persist.sys.button_headset_hook=media \
+    ro.audio.flinger_standbytime_ms=500 \
+    af.resampler.quality=3 \
+    persist.sys.NV_OEM_PROFILE_NAME=/system/etc/profile.bin \
+    ro.nv.usb.vid = 2717 \
+    ro.nv.usb.pid.mtp = 0660 \
+    ro.nv.usb.pid.mtp.adb = 0668 \
+    ro.nv.usb.pid.rndis = 0680 \
+    ro.nv.usb.pid.rndis.adb = 0688 \
+    ro.nv.usb.pid.ptp = 0610 \
+    ro.nv.usb.pid.ptp.adb = 0618 \
     persist.tegra.compositor=glcomposer \
     ro.input.noresample=1 \
     ro.com.google.clientidbase=android-nvidia \
@@ -208,8 +229,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     pbc.gpu.power=/sys/bus/i2c/devices/7-004b/power1_input \
     pbc.gpu.cap=/dev/gpu_freq_max \
     pbc.gpu.cap.af=/sys/devices/platform/host1x/gk20a.0/devfreq/gk20a.0/available_frequencies \
-    af.resampler.quality = 3
+    af.resampler.quality = 3 \
+    persist.sys.strictmode.disable=true
 
-#    persist.tegra.didim.enable = 1 \
-#    persist.tegra.didim.video = 5 \
-#    persist.tegra.didim.normal = 3
+#persist.tegra.didim.enable = 1
+#persist.tegra.didim.video = 5
+#persist.tegra.didim.normal = 3
